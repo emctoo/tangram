@@ -117,7 +117,7 @@ class Aggregator:
         t: Optional[Traffic] = self.decoders[decoder_name].traffic_records(
             start=previous_endtime
         )
-        _log.warn(
+        _log.warning(
             f"[{decoder_name}]: "
             f"received: {len(t) if t is not None else 0} "
             f"start: {t.start_time if t is not None else None} "

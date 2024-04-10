@@ -81,12 +81,12 @@ def main(app_host, app_port, live, history, data_path, mongo_uri, source, decode
     #     print("Allocations will be tracked until the with block ends")
 
     if decoders_address is None:
-        # serve_host = config.get("aggregator", "serve_host", fallback='omdb.lr.tudelft.nl')
-        # serve_port = config.get("aggregator", "serve_port", fallback=9142)
-        # decoders_address = {
-        #     'aggregator': f"tcp://{serve_host}:{serve_port}",
-        # }
-        decoders_address = {}
+        serve_host = config.get("aggregator", "serve_host", fallback='omdb.lr.tudelft.nl')
+        serve_port = config.get("aggregator", "serve_port", fallback=9142)
+        decoders_address = {
+            'aggregator': f"tcp://{serve_host}:{serve_port}",
+        }
+        # decoders_address = {}
 
     if source is not None:
         host, port = config.get(f"decoders.{source}", "serve_host"), config.get(f"decoders.{source}", "serve_port")
